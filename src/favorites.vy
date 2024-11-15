@@ -4,6 +4,7 @@
 # pragma version 0.4.0
 # @license MIT
 
+
 struct Person:
     favorite_number: uint256
     name: String[100]

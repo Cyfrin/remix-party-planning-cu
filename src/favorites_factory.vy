@@ -1,11 +1,9 @@
-# @version ^0.4.0
-# SPDX-License-Identifier: MIT
+# pragma version 0.4.0
+# @license MIT
 
-interface Favorites:
-    def store(favorites_number: uint256): nonpayable
-    def retrieve() -> uint256: view
+from interfaces import i_favorites
 
-list_of_favorites_contracts: public(DynArray[Favorites, 100])
+list_of_favorites_contracts: public(DynArray[i_favorites, 100])
 original_favorite_contract: address
 
 @deploy 
@@ -15,7 +13,7 @@ def __init__(original_favorite_contract: address):
 @external
 def create_favorites_contract():
     new_favorites_address: address = create_copy_of(self.original_favorite_contract)
-    favorites_contract: Favorites = Favorites(new_favorites_address)
+    favorites_contract: i_favorites = i_favorites(new_favorites_address)
     self.list_of_favorites_contracts.append(favorites_contract)
 
 @external

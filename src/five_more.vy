@@ -1,9 +1,14 @@
-# @version ^0.4.0
-# SPDX-License-Identifier: MIT
+# pragma version 0.4.0
+# @license MIT
 
 import favorites 
 
-initializes: favorites
+initializes: favorites # noqa 
+
+# what if favorites doesn't have an __init__ function? 
+@deploy 
+def __init__():
+    favorites.__init__()
 
 @external
 def store(favorite_number: uint256):
