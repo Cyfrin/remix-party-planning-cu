@@ -1,9 +1,8 @@
 # pragma version 0.4.0
 # @license MIT
-
 import favorites 
 
-initializes: favorites # noqa 
+initializes: favorites 
 
 # what if favorites doesn't have an __init__ function? 
 @deploy 
